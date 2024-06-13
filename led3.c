@@ -1,0 +1,33 @@
+#include<pic.h>
+void delay(unsigned int y)
+{
+while(y--);
+}
+void main()
+{
+TRISD=0x00;
+PORTD=0x00;
+PORTD=0x01;
+delay(32500);
+PORTD=0x00;
+PORTD=0x02;
+delay(32500);	
+PORTD=0x00;
+PORTD=0x04;
+delay(32500);	
+PORTD=0x00;
+PORTD=0x08;
+delay(32500);
+PORTD=0x00;
+PORTD=0x10;
+delay(32500);
+PORTD=0x00;
+PORTD=0x20;
+delay(32500);				
+PORTD=0x00;
+PORTD=0x40;
+delay(32500);	
+PORTD=0x00;
+PORTD=0x80;
+delay(32500);	
+}
