@@ -1,9 +1,9 @@
 //this program is for toggle pin 0 to pin 7 in the port D in an order on eby one 
 #include<pic.h>
 __CONFIG(0x3f3a);//use this line before converting this code to hex code.
-void delay(unsigned int y)//delay funtion
+void delay(unsigned int vyk)//delay funtion
 {
-while(y--);
+while(vyk--);
 }
 void main()
 {
