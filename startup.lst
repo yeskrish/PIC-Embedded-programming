@@ -1,0 +1,176 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.65 build 4410 
+                                                      Sat Oct 28 12:33:14 2023
+
+
+     1                           
+     2                           	; HI-TECH C PRO for the PIC10/12/16 MCU family
+                                  V9.65
+     3                           	; Copyright (C) 1984-2009 HI-TECH Software
+     4                           
+     5                           	; Auto-generated runtime startup code for fina
+                                 l link stage.
+     6                           
+     7                           	;
+     8                           	; Compiler options:
+     9                           	;
+    10                           	; -o7S1.cof -m7S1.map --summary=default --outp
+                                 ut=default 7S1.p1 \
+    11                           	; --chip=16F877A -P --runtime=default --opt=de
+                                 fault -D__DEBUG=1 -g \
+    12                           	; --asmlist --errformat=Error   [%n] %f; %l.%c
+                                  %s \
+    13                           	; --msgformat=Advisory[%n] %s --warnformat=War
+                                 ning [%n] %f; %l.%c %s
+    14                           	;
+    15                           
+    16                           
+    17                           	processor	16F877A
+    18                           
+    19                           	global	_main,start,_exit,reset_vec
+    20                           	fnroot	_main
+    21                           	psect	config,class=CONFIG,delta=2
+    22                           	psect	idloc,class=IDLOC,delta=2
+    23                           	psect	rbss_0,class=BANK0,space=1
+    24                           	psect	rbss_1,class=BANK1,space=1
+    25                           	psect	rbss_2,class=BANK2,space=1
+    26                           	psect	rbss_3,class=BANK3,space=1
+    27                           	psect	rdata_0,class=BANK0,space=1
+    28                           	psect	rdata_1,class=BANK1,space=1
+    29                           	psect	rdata_2,class=BANK2,space=1
+    30                           	psect	rdata_3,class=BANK3,space=1
+    31                           	psect	nvram,class=BANK0,space=1
+    32                           	psect	nvram_1,class=BANK1,space=1
+    33                           	psect	nvram_2,class=BANK2,space=1
+    34                           	psect	nvram_3,class=BANK3,space=1
+    35                           	psect	nvbit_0,class=BANK0,bit,space=1
+    36                           	psect	nvbit_1,class=BANK1,bit,space=1
+    37                           	psect	nvbit_2,class=BANK2,bit,space=1
+    38                           	psect	nvbit_3,class=BANK3,bit,space=1
+    39                           	psect	temp,ovrld,class=BANK0,space=1
+    40                           	psect	struct,ovrld,class=BANK0,space=1
+    41                           	psect	code,class=CODE,delta=2
+    42                           	psect	rbit_0,class=BANK0,bit,space=1
+    43                           	psect	ptbit_0,class=BANK0,bit,space=1
+    44                           	psect	rbit_1,class=BANK1,bit,space=1
+    45                           	psect	rbit_2,class=BANK2,bit,space=1
+    46                           	psect	rbit_3,class=BANK3,bit,space=1
+    47                           	psect	pstrings,class=CODE,delta=2
+    48                           	psect	powerup,class=CODE,delta=2
+    49                           	psect	reset_vec,class=CODE,delta=2
+    50                           	psect	maintext,class=CODE,delta=2
+    51  0000                     	C	set	0
+    52  0000                     	Z	set	2
+    53  0000                     	PCL	set	2
+    54  0000                     	INDF	set	0
+    55                           
+    56                           	psect	fnautoc,class=COMMON,space=1
+    57                           	psect	common,class=COMMON,space=1
+    58                           	psect	fnauto0,class=BANK0,space=1
+    59                           	psect	fnauto1,class=BANK1,space=1
+    60                           	psect	fnauto2,class=BANK2,space=1
+    61                           	psect	fnauto3,class=BANK3,space=1
+    62  0000                     	STATUS	equ	3
+    63  0000                     	PCLATH	equ	0Ah
+    64                           
+    65                           	psect	eeprom_data,class=EEDATA,delta=2,space=2
+    66                           	psect	idata,class=CODE,delta=2
+    67                           	psect	idata_0,class=CODE,delta=2
+    68                           	psect	idata_1,class=CODE,delta=2
+    69                           	psect	idata_2,class=CODE,delta=2
+    70                           	psect	idata_3,class=CODE,delta=2
+    71                           	psect	intcode,class=CODE,delta=2
+    72                           	psect	intret,class=CODE,delta=2
+    73                           	psect	intentry,class=CODE,delta=2
+    74                           	global	intlevel0,intlevel1,intlevel2, intlevel
+                                 3, intlevel4, intlevel5
+    75  0000                     intlevel0:
+    76  0000                     intlevel1:
+    77  0000                     intlevel2:
+    78  0000                     intlevel3:
+    79  0000                     intlevel4:
+    80  0000                     intlevel5:
+    81                           	psect	intsave,class=BANK0,space=1
+    82                           	psect	intsave_1,class=BANK1,space=1
+    83                           	psect	intsave_2,class=BANK2,space=1
+    84                           	psect	intsave_3,class=BANK3,space=1
+    85                           	psect	init,class=CODE,delta=2
+    86                           	psect	init23,class=CODE,delta=2
+    87                           	psect	text,class=CODE,delta=2
+    88                           	psect	end_init,class=CODE,delta=2
+    89                           	psect	clrtext,class=CODE,delta=2
+    90                           	psect	float_text0,class=CODE,delta=2,size=2048
+    91                           	psect	float_text1,class=CODE,delta=2,size=2048
+    92                           	psect	float_text2,class=CODE,delta=2,size=2048
+    93                           	psect	float_text3,class=CODE,delta=2,size=2048
+    94                           	psect	float_text4,class=CODE,delta=2,size=2048
+    95  0000                     	FSR	set	4
+    96                           	psect	strings,class=CODE,delta=2,reloc=256
+    97                           
+    98                           	psect	reset_vec
+    99  0000                     reset_vec:
+   100                           	; No powerup routine
+   101                           	; No interrupt routine
+   102                           
+   103                           
+   104                           	psect	init
+   105  0000                     start
+   106  0000                     _exit
+   107  0000                     btemp	equ	0x70		;temporary memory only used by 
+                                 the following
+   108  0000                     FSR	set	4
+   109  0000                     INDF	set	0
+   110  0000                     PCLATH	set	0Ah
+   111  0000                     PC	set	2
+   112                           global btemp, __Lramdata, __Lidata, __Hramdata
+   113  0000  3066               movlw	low(__Lramdata)
+   114  0001  0084               movwf	FSR
+   115  0002  3007               movlw	high(__Lidata)
+   116  0003  00F0               movwf	btemp
+   117  0004  30F6               movlw	low(__Lidata)
+   118  0005  00F1               movwf	btemp+1
+   119  0006                     copyloop:
+   120  0006  2011               fcall fetch
+   121  0007  0080               movwf	INDF
+   122  0008  0A84               incf	FSR,f
+   123  0009  0804               movf	FSR,w
+   124  000A  3A70               xorlw	low(__Hramdata)
+   125  000B  1903               btfsc	STATUS,2
+   126  000C  2815               goto	done_copy
+   127  000D  0AF1               incf	btemp+1,f
+   128  000E  1903               btfsc	STATUS,2
+   129  000F  0AF0               incf	btemp,f
+   130  0010  2806               goto copyloop
+   131  0011                     fetch:
+   132  0011  0870               movf	btemp,w
+   133  0012  008A               movwf	PCLATH
+   134  0013  0871               movf	btemp+1,w
+   135  0014  0082               movwf	PC
+   136  0015                     done_copy:
+   137                           
+   138                           ;----------------------------------------------
+                                 ---------------------------------
+   139                           ;		Clear (zero) uninitialized global variables
+   140                           
+   141                           ;	No RAM objects to clear in bank 0
+   142                           ;	No RAM objects to clear in bank 1
+   143                           ;	No RAM objects to clear in bank 2
+   144                           ;	No RAM objects to clear in bank 3
+   145                           ;	No RAM objects to clear in common bank
+   146                           
+   147                           ;----------------------------------------------
+                                 ---------------------------------
+   148                           	psect	end_init
+   149  0015  120A  118A  2818   	ljmp _main
+
+
+HI-TECH Software PICC Macro Assembler V9.65 build 4410 
+Symbol Table                                          Sat Oct 28 12:33:14 2023
+
+         PC 0002   __Lramdata 0066          FSR 0004         INDF 0000  
+      _main 0018        _exit 0000        fetch 0011        btemp 0070  
+      start 0000       PCLATH 000A       STATUS 0003    done_copy 0015  
+  intlevel0 0000    intlevel1 0000    intlevel2 0000    intlevel3 0000  
+  intlevel4 0000    intlevel5 0000     __Lidata 07F6    reset_vec 0000  
+   copyloop 0006   __Hramdata 0070  
